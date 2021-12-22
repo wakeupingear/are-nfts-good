@@ -1,0 +1,53 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Are NFTs Good?</title>
+    <meta name="description" content="Find out whether NFTs are good, crowdsourced from the Internet.">
+    <meta name="author" content="SitePoint">
+
+    <meta property="og:title" content="Are NFTs Good">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.willfarhat.com">
+    <meta property="og:description" content="Find out whether NFTs are good, crowdsourced from the Internet.">
+    <meta property="og:image" content="image.png">
+
+    <link rel="icon" href="/favicon.ico">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+    <div id="page">
+        <div id="center">
+            <div class="smallText">Are NFT's Good?</div>
+            <div id="answer"></div>
+        </div>
+        <div id="footer">
+            <p id="footerText">Made by Will Farhat - </p>
+        </div>
+    </div>
+</body>
+
+<script>
+    document.getElementById("footerText").innerHTML += new Date().getFullYear();
+    fetch('https://api.willfarhat.com:5000/nftStatus')
+        .then(response => response.json())
+        .then(data => {
+            if (data.data) {
+                document.getElementById("answer").innerHTML = "Yes";
+            } else {
+                document.getElementById("answer").innerHTML = "No";
+            }
+        });
+</script>
+
+</html>
