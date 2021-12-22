@@ -1,35 +1,38 @@
 body {
-    --bg1: #242582;
-    --bg2: #2F2FA2;
-    --alt1: #553D67;
-    --alt2: #99738E;
-    --light: #F64C72;
-    background-color: var(--bg2);
+    --dark: #3C3C3B;
+    --light: #EBEBD3;
+    --bg: #1446A0;
+    --bg-dark: #143677;
+    --bright: #F5D547;
+    --alt: #DB3069;
+    --confirm: #35af59;
+    --confirmDark: #32914e;
+    background-color: var(--bg);
     font-family: 'Poppins';
     padding: 0;
     margin: 0;
 }
 
-#answer{
+#answer {
     font-size: 16rem;
     font-weight: bold;
 }
 
-.smallText{
+.smallText {
     font-size: 3rem;
 }
 
 #page {
     width: 100vw;
     height: 100vh;
-    color: white;
+    color: var(--light);
     flex-direction: column;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-#center{
+#center {
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -37,13 +40,43 @@ body {
     align-items: center;
 }
 
-#footer{
+#answer::after {
+    content: "*"
+}
+
+a {
+    text-decoration: none;
+    color: var(--light);
+}
+
+#disclaimer {
+    background-color: var(--alt);
+    padding: 0 1rem 0 1rem;
+    margin: 2rem;
+    box-shadow: 0 0 0.5rem 0.5rem var(--bg-dark);
+    border-radius: 1rem;
+    background-image: linear-gradient(to right, var(--confirmDark), var(--confirm));
+    background-position: 0% 100%;
+    background-repeat: no-repeat;
+    background-size: 0% 100%;
+    transition: background-size .5s, color .5s;
+}
+
+#disclaimer:hover {
+    background-size: 100% 100%;
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+#footer {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
     width: 100%;
     height: 5%;
-    background-color: var(--light);
-    color: white;
+    background-color: var(--bright);
+    color: var(--dark);
 }

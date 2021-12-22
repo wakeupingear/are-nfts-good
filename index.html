@@ -31,8 +31,11 @@
             <div class="smallText">Are NFT's Good?</div>
             <div id="answer"></div>
         </div>
+        <div id="disclaimer" class="clickable">
+            <p><a href="https://github.com/willf668/are-nfts-good">*It's more complicated than it sounds.</a></p>
+        </div>
         <div id="footer">
-            <p id="footerText">Made by Will Farhat - </p>
+            <p id="footerText" class="clickable" href="https://willfarhat.com/">Made by Will Farhat - </p>
         </div>
     </div>
 </body>
@@ -42,11 +45,13 @@
     fetch('https://api.willfarhat.com:5000/nftStatus')
         .then(response => response.json())
         .then(data => {
+            let answer = document.getElementById("answer");
             if (data.data) {
-                document.getElementById("answer").innerHTML = "Yes";
+                answer.innerHTML = "Yes";
             } else {
-                document.getElementById("answer").innerHTML = "No";
+                answer.innerHTML = "No";
             }
+            //answer.innerHTML+="*";
         });
 </script>
 
