@@ -23,10 +23,9 @@ module.exports = class API {
                 ]
             }).then(tweetData => {
                 if (!tweetData._realData.data) return null;
-                const val = {};
-                val.data=tweetData._realData.data[0];
+                const val = tweetData._realData.data[0];
                 Object.keys(tweetData.includes).forEach(element => {
-                    val[element]=tweetData.includes[element][0];
+                    val[element] = tweetData.includes[element][0];
                 });
                 return val;
             });
@@ -34,6 +33,12 @@ module.exports = class API {
     }
 
     async getUser(username) {
-        return this.client.v2.userByUsername(username)
+        return this.client.v2.userByUsername(username);
+    }
+
+    async createPoll(message, options, time) {
+        const { data: createdTweet } = await this.client.v2.tweet(message, {
+            poll: { duration_minutes: time, options: options },
+        });
     }
 }
