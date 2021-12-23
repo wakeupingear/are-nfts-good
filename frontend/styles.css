@@ -14,7 +14,7 @@ body {
 }
 
 #answer {
-    font-size: 16rem;
+    font-size: 21rem;
     font-weight: bold;
 }
 
@@ -38,6 +38,17 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+#title {
+    height: min-content;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#title img {
+    height: 6rem;
 }
 
 #answer::after {
@@ -79,4 +90,9 @@ a {
     height: 5%;
     background-color: var(--bright);
     color: var(--dark);
+}
+
+#footerText {
+    color: var(--dark);
+    padding:0 2rem 0 2rem;
 }
